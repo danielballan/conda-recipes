@@ -30,10 +30,29 @@ LinuxInstallation() {
     return 0;
 }
 
+DarwinInstallation() {
+    # Derived from the Homebrew Formula
+    # https://github.com/Homebrew/homebrew/blob/master/Library/Formula/x264.rb
+
+    chmod +x configure;
+
+    ./configure \
+        --enable-shared \
+        --enable-static \
+	--enable-strip \
+        --prefix=${PREFIX} || return 1;
+    make install || return 1;
+
+    return 0;
+}
+
 case ${ARCH} in
     'Linux')
         LinuxInstallation || exit 1;
         ;;
+    'Darwin')
+	DarwinInstallation || exit 1;
+	;;
     *)
         echo -e "Unsupported machine type: ${ARCH}";
         exit 1;
