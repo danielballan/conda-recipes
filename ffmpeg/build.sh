@@ -45,6 +45,12 @@ DarwinInstallation() {
         --prefix=${PREFIX} || return 1;
     make || return 1;
     make install || return 1;
+    install_name_tool -id $PREFIX/lib/libavcodec.55.dylib libavcodec.55.dylib
+    install_name_tool -id $PREFIX/lib/libavdevice.55.dylib libavdevice.55.dylib
+    install_name_tool -id $PREFIX/lib/libavformat.55.dylib libavformat.55.dylib
+    install_name_tool -id $PREFIX/lib/libswresample.0.dylib libswresample.0.dylib
+    install_name_tool -id $PREFIX/lib/libswscale.2.dylib libswscale.2.dylib
+
 
     return 0;
 }
