@@ -1,0 +1,31 @@
+package:
+  name: av
+  version: !!str 0.2.2
+
+source:
+  fn: av-0.2.2.tar.gz
+  url: https://pypi.python.org/packages/source/a/av/av-0.2.2.tar.gz
+  md5: ec0198f28d9294d20b54b0ac3a9ff77d
+  patches:
+   - use-anaconda-lib.patch
+
+requirements:
+  build:
+    - python
+    - setuptools>=6.0
+    - cython
+    - ffmpeg
+
+  run:
+    - python
+    - numpy
+    - pillow
+
+test:
+  imports:
+    - av
+
+about:
+  home: https://github.com/mikeboers/PyAV
+  license:  BSD License
+  summary: 'Pythonic bindings for FFmpeg/Libav.'
