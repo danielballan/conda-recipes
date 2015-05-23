@@ -1,10 +1,10 @@
 package:
   name: pyav
-  version: v0.2.2
+  version: v0.2.3
 
 source:
   git_url: https://github.com/mikeboers/PyAV.git
-  git_rev: v0.2.2
+  git_rev: v0.2.3
 
 build:
   string: 0
